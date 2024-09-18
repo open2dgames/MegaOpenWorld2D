@@ -1,3 +1,11 @@
+# Voici les bibliothèques installés
 pygame==2.6.0
 pyscroll==2.31
 PyTMX==3.32
+
+# Comment les installer: 
+# 1-- Ouvrir la console de commande
+# 2-- Taper ceci: pip install -r requirements.txt
+
+# Comment Setup le fichier requirements.txt si il y a eu des nouvelles bibliothques installés sans être mis à jour
+# 1-- Taper ceci: pip freeze > requirements.txt
