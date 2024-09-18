@@ -24,3 +24,4 @@ Trying to learn more about Python, Pygame and Tiled for the moment.
 - Start a social media talking about this project (not sure)
 - Animation, SFX and music systems implemented and easy to use (+ documentation)
 - Real mechanincs to deal in the game
+- Organised project
