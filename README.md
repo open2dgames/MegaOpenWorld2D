@@ -1,2 +1,9 @@
 # MegaOpenWorld2D
-It is a 2d game that will be probably an open-source project with the ambition to make it **BIG**, not just for the size, but also for the stories that will be told in it.
+2D game in python, open-source, for everybody
+
+
+# The concept
+It is to make a game were everybody brings something in it to make it the **WILDEST** top down 2d game none rng of all time.
+In 2D to make it easy for everybody (little skill & low spec pc) to expand on it --> using Tiled for the maps and Krita for the designs
+
+There is need for more precision on the idea but the ultimate goal is community creating a great game **TOGETHER**
