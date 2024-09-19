@@ -290,7 +290,7 @@
   <object id="23" type="collision" x="187.182" y="369.727" width="10.1818" height="8.63636"/>
   <object id="24" type="collision" x="286.957" y="387.174" width="2.04348" height="6.69565"/>
   <object id="25" name="enter_zone" x="320.5" y="12" width="63" height="54"/>
-  <object id="26" name="enter_zone_exit" x="352" y="161">
+  <object id="26" name="enter_zone_exit" x="352" y="112.25">
    <point/>
   </object>
  </objectgroup>

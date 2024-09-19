@@ -11,7 +11,7 @@ class Game:
         pygame.display.set_caption("Pygamon - Aventure")
 
         # charger la carte (tmx)
-        tmx_data = pytmx.util_pygame.load_pygame('carte.tmx')
+        tmx_data = pytmx.util_pygame.load_pygame('map/carte.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 1
@@ -59,7 +59,7 @@ class Game:
 
     def switch_zone(self):
         # charger la zone (tmx)
-        tmx_data = pytmx.util_pygame.load_pygame('zone1.tmx')
+        tmx_data = pytmx.util_pygame.load_pygame('map/zone1.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 1
@@ -86,7 +86,7 @@ class Game:
 
     def switch_world(self):
                 # charger la carte (tmx)
-        tmx_data = pytmx.util_pygame.load_pygame('carte.tmx')
+        tmx_data = pytmx.util_pygame.load_pygame('map/carte.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 1
