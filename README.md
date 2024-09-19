@@ -1,6 +1,8 @@
 # MegaOpenWorld2D
 2D game in python, open-source, for everybody
 
+Made with Pygame and Tiled
+
 
 ## The concept
 It is to make a game were everybody brings something in it to make it the **WILDEST** top down 2d game none rng of all time.
