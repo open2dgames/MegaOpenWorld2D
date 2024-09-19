@@ -27,13 +27,17 @@ class MapManager:
 
         self.register_map("carte", portals=[
             Portal(from_world="carte", origin_point="enter_zone", target_world="zone1", teleport_point="spawn_zone"),
-            Portal(from_world="carte", origin_point="enter_zone2", target_world="zone2", teleport_point="spawn_point")
+            Portal(from_world="carte", origin_point="enter_zone2", target_world="zone2", teleport_point="spawn_point"),
+            Portal(from_world="carte", origin_point="enter_dungeon", target_world="dungeon", teleport_point="spawn_dungeon")
         ])
         self.register_map("zone1", portals=[
             Portal(from_world="zone1", origin_point="exit_zone", target_world="carte", teleport_point="enter_zone_exit")
         ])
         self.register_map("zone2", portals=[
             Portal(from_world="zone2", origin_point="exit_zone2", target_world="carte", teleport_point="exit_zone2")
+        ])
+        self.register_map("dungeon", portals=[
+            Portal(from_world="dungeon", origin_point="exit_dungeon", target_world="carte", teleport_point="dungeon_exit_spawn")
         ])
 
         self.teleport_player("player")
