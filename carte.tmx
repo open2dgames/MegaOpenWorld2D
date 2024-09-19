@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="25">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="27">
  <tileset firstgid="1" source="Nature.tsx"/>
  <layer id="1" name="background" width="50" height="50">
   <data encoding="csv">
@@ -289,5 +289,9 @@
   <object id="21" type="collision" x="234.667" y="318.667" width="10" height="11.3333"/>
   <object id="23" type="collision" x="187.182" y="369.727" width="10.1818" height="8.63636"/>
   <object id="24" type="collision" x="286.957" y="387.174" width="2.04348" height="6.69565"/>
+  <object id="25" name="enter_zone" x="320.5" y="12" width="63" height="54"/>
+  <object id="26" name="enter_zone_exit" x="352" y="161">
+   <point/>
+  </object>
  </objectgroup>
 </map>
