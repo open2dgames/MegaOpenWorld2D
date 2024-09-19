@@ -32,7 +32,7 @@
   <object id="5" type="collision" x="-76" y="304" width="966" height="66"/>
   <object id="7" type="collision" x="-84" y="-158" width="98" height="580"/>
   <object id="9" name="exit_zone" x="398" y="271" width="81" height="59"/>
-  <object id="10" name="spawn_zone" x="440" y="231">
+  <object id="10" name="spawn_zone" x="541.667" y="237">
    <point/>
   </object>
  </objectgroup>

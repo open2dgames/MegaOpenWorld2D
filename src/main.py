@@ -7,4 +7,4 @@ if __name__ == '__main__':
     game = Game()
     game.run()
 
-# Reprendre le TUto de Graven sur faire un jeu en Python à 48 minutes
+# Road to finish part 2 du tutoriel de Graven
