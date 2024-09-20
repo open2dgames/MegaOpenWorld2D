@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="16">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="19">
  <tileset firstgid="1" source="Nature.tsx"/>
  <layer id="1" name="background" width="25" height="25">
   <data encoding="csv">
@@ -161,5 +161,7 @@
   <object id="15" name="spawn_point" x="91.6667" y="301">
    <point/>
   </object>
+  <object id="16" name="robin_path1" x="272.333" y="80.6667" width="15.3333" height="15.6667"/>
+  <object id="17" name="robin_path2" x="271.667" y="224.667" width="16.6667" height="16"/>
  </objectgroup>
 </map>

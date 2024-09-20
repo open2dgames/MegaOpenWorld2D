@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="24">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="29">
  <tileset firstgid="1" source="Nature.tsx"/>
  <tileset firstgid="721" source="dungeon.tsx"/>
  <layer id="1" name="floor" width="50" height="50">
@@ -241,5 +241,7 @@
   <object id="23" name="spawn_dungeon" x="265.333" y="683">
    <point/>
   </object>
+  <object id="24" name="boss_path1" x="208" y="144" width="16.3636" height="16.1818"/>
+  <object id="27" name="boss_path2" x="319.818" y="143.636" width="16.5455" height="16.7273"/>
  </objectgroup>
 </map>

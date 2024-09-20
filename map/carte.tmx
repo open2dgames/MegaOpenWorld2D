@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="31">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="35">
  <tileset firstgid="1" source="Nature.tsx"/>
  <tileset firstgid="721" source="dungeon.tsx"/>
  <layer id="1" name="background" width="50" height="50">
@@ -302,5 +302,11 @@
   <object id="30" name="dungeon_exit_spawn" x="161" y="93.5">
    <point/>
   </object>
+ </objectgroup>
+ <objectgroup id="7" name="NPCPaths">
+  <object id="31" name="paul_path1" x="432" y="126.5" width="16.5" height="18"/>
+  <object id="32" name="paul_path2" x="431.5" y="239.5" width="16.5" height="16"/>
+  <object id="33" name="paul_path3" x="223" y="238.5" width="18" height="18"/>
+  <object id="34" name="paul_path4" x="223.5" y="128" width="17.5" height="17"/>
  </objectgroup>
 </map>
