@@ -4,6 +4,7 @@ import pyscroll
 import pytmx.util_pygame
 from player import Player
 from map import MapManager
+from dialog import DialogBox
 
 class Game: 
     def __init__(self):
@@ -14,6 +15,7 @@ class Game:
         # generer un joueur
         self.player = Player()
         self.map_manager = MapManager(self.screen, self.player)
+        self.dialog_box = DialogBox()
     
 
     def handle_input(self):
@@ -45,11 +47,15 @@ class Game:
             self.handle_input()
             self.update()
             self.map_manager.draw()
+            self.dialog_box.render(self.screen)
             pygame.display.flip()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        self.map_manager.check_npc_collisions(self.dialog_box)
 
             clock.tick(60) # Bride à 60 FPS
 

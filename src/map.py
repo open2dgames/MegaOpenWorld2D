@@ -32,7 +32,7 @@ class MapManager:
             Portal(from_world="carte", origin_point="enter_zone2", target_world="zone2", teleport_point="spawn_point"),
             Portal(from_world="carte", origin_point="enter_dungeon", target_world="dungeon", teleport_point="spawn_dungeon")
         ], npcs=[
-            NPC("paul", nb_points=4)
+            NPC("paul", nb_points=4, dialog=["bonne aventure", "je m'appelle Paul"])
         ])
         
         self.register_map("zone1", portals=[
@@ -42,17 +42,22 @@ class MapManager:
         self.register_map("zone2", portals=[
             Portal(from_world="zone2", origin_point="exit_zone2", target_world="carte", teleport_point="exit_zone2")
         ], npcs=[
-            NPC("robin", nb_points=2)
+            NPC("robin", nb_points=2, dialog=["Salutation", "je m'appelle Robin"])
         ])
 
         self.register_map("dungeon", portals=[
             Portal(from_world="dungeon", origin_point="exit_dungeon", target_world="carte", teleport_point="dungeon_exit_spawn")
         ], npcs=[
-            NPC("boss", nb_points=2)
+            NPC("boss", nb_points=2, dialog=["HAHA", "Ohio Final BOSS"])
         ])
 
         self.teleport_player("player")
         self.teleport_npcs()
+
+    def check_npc_collisions(self, dialog_box):
+        for sprite in self.get_group().sprites():
+            if sprite.feet.colliderect(self.player.rect) and type(sprite) is NPC:
+                dialog_box.execute(sprite.dialog)
 
     def check_collisions(self):
         # portails
@@ -68,6 +73,13 @@ class MapManager:
 
         # collision
         for sprite in self.get_group().sprites():
+
+            if type(sprite) is NPC:
+                if sprite.feet.colliderect(self.player.rect):
+                    sprite.speed = 0
+                else:
+                    sprite.speed = 1
+
             if sprite.feet.collidelist(self.get_walls()) > -1:
                 sprite.move_back()
 
