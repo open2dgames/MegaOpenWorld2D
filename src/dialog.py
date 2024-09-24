@@ -16,12 +16,16 @@ class DialogBox:
         self.reading = False
 
     def execute(self, dialog=[]):
-        if self.reading:
+        if self.reading and self.texts == dialog:
             self.next_text()
         else:
             self.reading = True
             self.text_index = 0
             self.texts = dialog
+
+    def quit_dialog(self):
+        self.reading = False
+        self.text_index = 0
 
     def render(self, screen):
         if self.reading:

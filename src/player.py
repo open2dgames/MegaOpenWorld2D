@@ -16,6 +16,7 @@ class Entity(AnimateSprite):
 
     def save_location(self): self.old_position = self.position.copy()
     
+    # Refactoriser le système de mouvement pour qu'il n'y ait qu'une fonction concise (utiliser des vecteurs)(good luck pour les anim)
     def move_right(self): 
         self.change_animation("right")
         self.position[0] += self.speed
@@ -57,6 +58,7 @@ class NPC(Entity):
         self.name = name
         self.current_point = 0
 
+    # Better systeme of movement towards a point
     def move(self):
         current_point = self.current_point
         target_point = self.current_point + 1

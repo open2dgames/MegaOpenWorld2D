@@ -17,7 +17,6 @@ class Game:
         self.map_manager = MapManager(self.screen, self.player)
         self.dialog_box = DialogBox()
     
-
     def handle_input(self):
         pressed = pygame.key.get_pressed()
 
@@ -30,10 +29,8 @@ class Game:
         if pressed[pygame.K_LEFT]:
             self.player.move_left()
 
-    
     def update(self):
         self.map_manager.update()
-
 
     def run(self):
         clock = pygame.time.Clock()

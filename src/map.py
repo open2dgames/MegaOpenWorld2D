@@ -55,9 +55,16 @@ class MapManager:
         self.teleport_npcs()
 
     def check_npc_collisions(self, dialog_box):
+        collide_with_npc = False
         for sprite in self.get_group().sprites():
             if sprite.feet.colliderect(self.player.rect) and type(sprite) is NPC:
                 dialog_box.execute(sprite.dialog)
+                collide_with_npc = True
+        
+        if not collide_with_npc:
+            dialog_box.quit_dialog()
+
+        
 
     def check_collisions(self):
         # portails
@@ -88,7 +95,6 @@ class MapManager:
         self.player.position[0] = point.x
         self.player.position[1] = point.y
         self.player.save_location()
-
 
     def register_map(self, name, portals=[], npcs=[]):
         # charger la carte (tmx)
