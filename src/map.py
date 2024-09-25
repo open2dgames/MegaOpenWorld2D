@@ -35,6 +35,8 @@ class MapManager:
         ], npcs=[
             NPC("paul", nb_points=4, dialog=["bonne aventure", "je m'appelle Paul"])
         ])
+
+        self.find_portals("carte")
         
         self.register_map("zone1", portals=[
             Portal(from_world="zone1", origin_point="exit_zone", target_world="carte", teleport_point="enter_zone_exit")
@@ -111,24 +113,31 @@ class MapManager:
                 # Récupérez uniquement le nom du fichier sans l'extension
                 nom_fichier = os.path.splitext(fichier)[0]
                 if not nom_fichier in self.maps: # Si la map n'est pas encore référencer
-                    print(nom_fichier)
-
-        # si il y est, ne rien faire car on suppose que tout a été fait
-        # sinon, faire register_map(le nom du fichier sans le .tmx, null(portails), null(npcs))
-        
+                    self.register_map(nom_fichier)
+                    self.find_portals(nom_fichier)      
 
     # S'inspirer de la fonction load points de la classe NPC
     def find_portals(self, name): # On demande la le name du monde
         # NAMING SYTEME:
         # portal: monde-actuel_monde-cible
         # spawn point: spawn_monde-actuel (même si ce portail, on le sait, se trouvera hors du monde actuel)
+        portals = []
+        tmx_data = pytmx.util_pygame.load_pygame(f"map/{name}.tmx")
 
-        # Boucler dans tout les objects
-        # Voir si leur nom contient le nom du monde dans lequel on est
-        # Si on trouve un portail, alors on vérifie dans la destination voulue si il y a un spawn point
-        # Si oui, Rajouter le portail au monde qui est traité et continuer la boucle
-        # Sinon, ne rien faire et continuer la boucle
-        return
+        for obj in tmx_data.objects:
+            if obj.name is not None and name in obj.name:
+                target_world = obj.name.replace(name + "_", "", 1)
+                target_tmx_data = pytmx.util_pygame.load_pygame((f"map/{target_world}.tmx"))
+
+                for obj2 in target_tmx_data.objects:
+                    if ("spawn_" + name) == obj2.name:
+                        portals.append(Portal(from_world=name, origin_point=obj.name, target_world=target_world, teleport_point=obj2.name))
+
+        for i in range(len(portals)):
+            if not portals[i] in self.maps[name].portals:
+                self.maps[name].portals.append(portals[i])     
+                print(portals[i]) 
+
 
     def register_map(self, name, portals=[], npcs=[]):
         # charger la carte (tmx)
