@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import pygame, pytmx, pyscroll
 from player import NPC
+import os
 
 @dataclass
 class Portal:
@@ -51,6 +52,8 @@ class MapManager:
             NPC("boss", nb_points=2, dialog=["HAHA", "Ohio Final BOSS"])
         ])
 
+        self.register_maps()
+
         self.teleport_player("player")
         self.teleport_npcs()
 
@@ -63,8 +66,6 @@ class MapManager:
         
         if not collide_with_npc:
             dialog_box.quit_dialog()
-
-        
 
     def check_collisions(self):
         # portails
@@ -95,6 +96,39 @@ class MapManager:
         self.player.position[0] = point.x
         self.player.position[1] = point.y
         self.player.save_location()
+
+    def register_maps(self):
+        # Boucler dans tout les fichiers .tmx
+
+        # Spécifiez le chemin du dossier et l'extension recherchée
+        dossier = "map"
+        extension = ".tmx"
+
+        # Boucle sur tous les fichiers du dossier
+        for fichier in os.listdir(dossier):
+            # Vérifiez si le fichier a l'extension souhaitée
+            if fichier.endswith(extension):
+                # Récupérez uniquement le nom du fichier sans l'extension
+                nom_fichier = os.path.splitext(fichier)[0]
+                if not nom_fichier in self.maps: # Si la map n'est pas encore référencer
+                    print(nom_fichier)
+
+        # si il y est, ne rien faire car on suppose que tout a été fait
+        # sinon, faire register_map(le nom du fichier sans le .tmx, null(portails), null(npcs))
+        
+
+    # S'inspirer de la fonction load points de la classe NPC
+    def find_portals(self, name): # On demande la le name du monde
+        # NAMING SYTEME:
+        # portal: monde-actuel_monde-cible
+        # spawn point: spawn_monde-actuel (même si ce portail, on le sait, se trouvera hors du monde actuel)
+
+        # Boucler dans tout les objects
+        # Voir si leur nom contient le nom du monde dans lequel on est
+        # Si on trouve un portail, alors on vérifie dans la destination voulue si il y a un spawn point
+        # Si oui, Rajouter le portail au monde qui est traité et continuer la boucle
+        # Sinon, ne rien faire et continuer la boucle
+        return
 
     def register_map(self, name, portals=[], npcs=[]):
         # charger la carte (tmx)
