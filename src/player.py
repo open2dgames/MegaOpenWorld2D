@@ -1,5 +1,6 @@
 import pygame
 from animation import AnimateSprite
+import math
 
 class Entity(AnimateSprite):
 
@@ -33,10 +34,32 @@ class Entity(AnimateSprite):
         self.change_animation("down")
         self.position[1] += self.speed
 
+    
+    def move(self, x, y):
+        length = math.sqrt(x**2 + y**2)
+
+        # Éviter le mouvement diagonal si le vecteur n'est pas nul
+        if length > 0:            
+            # Appliquer la vitesse
+            self.position[0] += (x * self.speed) / length
+            self.position[1] += (y * self.speed)/ length
+        
+        if y == 1:
+            self.change_animation("down")
+
+        if y == -1:
+            self.change_animation("up")
+
+        if x == -1:
+            self.change_animation("left")
+            
+        if x == 1:
+            self.change_animation("right")
+
+
     def update(self):
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
-
     def move_back(self, i=None): 
 
         if i == None : self.position = self.old_position
@@ -45,7 +68,7 @@ class Entity(AnimateSprite):
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
 
-    def move(self, position):
+    def move_to_pos(self, position):
         self.position = position
 
         self.rect.topleft = self.position

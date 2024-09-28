@@ -19,15 +19,21 @@ class Game:
     
     def handle_input(self):
         pressed = pygame.key.get_pressed()
-
+        x = 0
+        y = 0
         if pressed[pygame.K_UP]:
-            self.player.move_up()
+            #self.player.move_up()
+            y += -1
         if pressed[pygame.K_DOWN]:
-            self.player.move_down()
+            #self.player.move_down()
+            y += 1
         if pressed[pygame.K_RIGHT]:
-            self.player.move_right()
+            #self.player.move_right()
+            x += 1
         if pressed[pygame.K_LEFT]:
-            self.player.move_left()
+            #self.player.move_left()
+            x -= 1
+        self.player.move(x, y)
 
     def update(self):
         self.map_manager.update()

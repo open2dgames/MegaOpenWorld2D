@@ -94,7 +94,7 @@ class MapManager:
             if sprite.feet.collidelist(self.get_walls()) > -1:
                 sprite.move_back(0)
                 if sprite.feet.collidelist(self.get_walls()) > -1:
-                    sprite.move(sprite_last_pos)
+                    sprite.move_to_pos(sprite_last_pos)
                     sprite.move_back(1)
                     if sprite.feet.collidelist(self.get_walls()) > -1:
                         sprite.move_back()
