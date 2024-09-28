@@ -18,15 +18,15 @@ Trying to learn more about Python, Pygame and Tiled for the moment.
 
 ## Goals :
 ### This week
-- Make a documentation on how to learn the skills to contribute to the project
-- Add to the documentation the software used (all free) and tutorials (in french and english)
-- Documentation in french and english
+- make the documentation in french
+- add a system for no code tiled maps --done
+
 
 ### This month
 - Start a social media talking about this project (not sure)
-- Animation, SFX and music systems implemented and easy to use (+ documentation)
-- Real mechanincs to deal in the game
-- Organised project
+- Animation, SFX and music systems implemented and easy to use
+- Add monster following you and the game mecha about getting 10 keys
+
 
 ### None time related and more for fun
 - Integrated AI in the workflow
@@ -36,7 +36,8 @@ Trying to learn more about Python, Pygame and Tiled for the moment.
 --not started--
 - fix diagonal movement speed issue
 - fix layer gfx issue
-- add folders to organise the project
+- create new art (16 tiles floor)(characters news)
+- fix diagonal none movement when colliding wall issue
 
 
 --in progress--

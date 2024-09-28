@@ -89,9 +89,15 @@ class MapManager:
                     sprite.speed = 0
                 else:
                     sprite.speed = 1
+            sprite_last_pos = sprite.position.copy()
 
             if sprite.feet.collidelist(self.get_walls()) > -1:
-                sprite.move_back()
+                sprite.move_back(0)
+                if sprite.feet.collidelist(self.get_walls()) > -1:
+                    sprite.move(sprite_last_pos)
+                    sprite.move_back(1)
+                    if sprite.feet.collidelist(self.get_walls()) > -1:
+                        sprite.move_back()
 
     def teleport_player(self, name):
         point = self.get_object(name)

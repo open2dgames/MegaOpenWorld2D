@@ -37,10 +37,20 @@ class Entity(AnimateSprite):
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
 
-    def move_back(self):
-        self.position = self.old_position
+    def move_back(self, i=None): 
+
+        if i == None : self.position = self.old_position
+        else : self.position[i] = self.old_position[i]
+        
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
+
+    def move(self, position):
+        self.position = position
+
+        self.rect.topleft = self.position
+        self.feet.midbottom = self.rect.midbottom
+
     
 class Player(Entity):
     
